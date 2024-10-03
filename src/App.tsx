@@ -1,8 +1,8 @@
-import React from "react";
-import "./App.css";
-import Dashboard from "./components/dashboard";
-import { GroupServicesProvider } from "./components/context/groupsServicesContext";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import { GroupServicesProvider } from "./components/context/groupsServicesContext";
+import Dashboard from "./components/dashboard";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
           </Routes>
         </GroupServicesProvider>
       </div>
+      <Analytics />
     </BrowserRouter>
   );
 }
