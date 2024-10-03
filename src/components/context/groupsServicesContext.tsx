@@ -51,9 +51,8 @@ const GroupServicesProvider = ({ children }: PropsWithChildren<{}>) => {
     )
       .then((response) => response.text())
       .then((data) => {
-        const parsedData = yaml.load(data); // Parse the YAML file
+        const parsedData = yaml.load(data);
 
-        // Update the state with parsed groups data
         if (parsedData && parsedData.groups) {
           const newGroups = parsedData.groups?.map((group: IGroup) => ({
             name: group.name,
@@ -84,8 +83,6 @@ const GroupServicesProvider = ({ children }: PropsWithChildren<{}>) => {
       `https://api.github.com/repos/samber/awesome-prometheus-alerts`
     );
     const data = await response.json();
-    console.log(`github data : ${data}`);
-    console.log(`Star count: ${data.stargazers_count}`);
     setGithubStarCount(data.stargazers_count);
   };
 
