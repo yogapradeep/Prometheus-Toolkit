@@ -1,15 +1,21 @@
-import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Dashboard from "./components/dashboard";
 import { GroupServicesProvider } from "./components/context/groupsServicesContext";
+import Dashboard from "./components/dashboard";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
-    <div className="App">
-      <GroupServicesProvider>
-        <Dashboard />
-      </GroupServicesProvider>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <GroupServicesProvider>
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+          </Routes>
+        </GroupServicesProvider>
+      </div>
+      <Analytics />
+    </BrowserRouter>
   );
 }
 
