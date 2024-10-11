@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         jetbrains: ["JetBrains Mono", "monospace"],
+        inter: ["Inter, sans-serif"],
       },
       fontSize: {
         "2xs": ["10px", "16px"],

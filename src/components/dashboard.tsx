@@ -5,6 +5,7 @@ import { IExporter } from "./context/groupsServicesContext";
 import Navbar from "./navbar";
 import RulesModal from "./rulesModal";
 import Services from "./services";
+import Footer from "./footer";
 
 function Dashboard() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -46,8 +47,8 @@ function Dashboard() {
     <div className="mx-auto container">
       <Navbar />
 
-      <div className="mx-auto w-4/5 container">
-        <div className="mt-12">
+      <div className="mx-auto w-4/5 container my-12">
+        <div className="">
           <p className="mb-4 font-medium text-left text-slate-600 text-xl">
             Browse Library
           </p>
@@ -95,6 +96,8 @@ function Dashboard() {
           isLoading={isLoading}
         />
       </div>
+
+      <Footer />
     </div>
   );
 }

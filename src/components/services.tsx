@@ -28,7 +28,7 @@ function Services({
             <h2 className="font-bold text-left text-slate-400 text-2xs mb-4">
               {group.name.toUpperCase()}
             </h2>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {filteredServices.map((service: IService) => (
                 <div
                   key={service.name}
@@ -42,18 +42,13 @@ function Services({
                     </p>
                   </div>
                   <div className="mb-4 text-left h-18 overflow-hidden text-ellipsis ">
-                    <span className="inline-flex items-center rounded-md bg-gray-50 px-1    ring-1 ring-inset ring-gray-500/10 text-slate-400 font-bold text-2xs mr-1">
+                    <span className="inline-flex items-center rounded-md bg-gray-50 px-1    ring-1 ring-inset ring-gray-500/10 text-slate-400 font-bold text-2xs mr-1 ">
                       {getTotalRulesCount(service?.exporters)} RULES
                     </span>
-                    <span className="text-ellipsis overflow-hidden">
+                    <span className="text-ellipsis overflow-hidden text-xs text-slate-400 font-medium">
                       {service?.exporters?.flatMap((exporter: IExporter) =>
                         exporter?.rules?.map((rule: IRule, index: number) => (
-                          <span
-                            key={index}
-                            className="text-xs text-slate-400 font-medium"
-                          >
-                            {rule.name},{" "}
-                          </span>
+                          <>{rule.name}, </>
                         ))
                       )}
                     </span>
