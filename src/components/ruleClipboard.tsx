@@ -32,18 +32,17 @@ const RuleClipboard = ({ rule }: { rule: IGroupRule }) => {
         <div>
           {Object.entries(rule).map(([key, value]) => (
             <div key={key}>
-              <p className="mb-1">
-                <span className="text-green-500">{key}</span> :{" "}
+              <p className="">
+                <span className="text-[#22863A]">{key}</span> :{" "}
                 <span className="text-slate-600">
                   {typeof value === "object"
                     ? Object.entries(value).map(([subKey, subValue]) => (
                         <span key={subKey} className="">
                           <br />
-                          <span className="text-green-500 pl-4">
+                          <span className="text-[#22863A] pl-4">
                             {subKey}
                           </span>{" "}
                           : {JSON.stringify(subValue, null, 2)}
-                          <br />
                         </span>
                       ))
                     : JSON.stringify(value, null, 2)}
@@ -55,7 +54,7 @@ const RuleClipboard = ({ rule }: { rule: IGroupRule }) => {
       </div>
 
       <button
-        className={`top-2 right-0 absolute flex items-center gap-2 ${
+        className={`top-2 right-0 absolute flex items-center gap-2 font-bold text-2xs ${
           copied ? "bg-green-100 text-green-600" : "bg-slate-100 text-slate-500"
         } mt-2 p-1 pl-2 rounded`}
         onClick={handleCopy}
@@ -72,7 +71,7 @@ const RuleClipboard = ({ rule }: { rule: IGroupRule }) => {
             fill={`${copied ? "#22C55E" : "#64748B"}`}
           />
         </svg>
-        {copied ? "Copied!" : "Copy"}
+        <span className="font-inter ">{copied ? "COPIED!" : "COPY"}</span>
       </button>
     </div>
   );
